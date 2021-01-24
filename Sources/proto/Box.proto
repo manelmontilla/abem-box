@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package abem_box;
+
+message FilesData {
+  string name = 1;
+  uint64 files_content_area_offset = 3;
+  uint64 files_content_area_size = 4;
+  repeated FileListItem file_list = 5;
+  DirectoryData root_dir = 6;
+}
+
+message FileListItem {
+  uint64 offset = 1;
+  uint64 size = 2;
+  bool deleted = 3;
+  bytes hash = 4;
+  uint32  references = 5;
+}
+
+message DirectoryFile {
+    string name = 1;
+    bytes file_hash = 2;
+}
+
+message DirectoryData {
+    string name = 1;
+    repeated DirectoryFile files = 2;
+    repeated DirectoryData subdirectories = 3;
+}
