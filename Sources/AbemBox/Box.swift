@@ -45,7 +45,7 @@ public class Box {
     
     init?(from file:URL, with password: String) throws {
         guard #available(OSX 10.15.4, *) else {throw  AbemBoxErrors.OperationNotSupported}
-        guard #available(iOS 13.0, *) else {throw  AbemBoxErrors.OperationNotSupported}
+        guard #available(iOS 13.4, *) else {throw  AbemBoxErrors.OperationNotSupported}
         guard file.startAccessingSecurityScopedResource() else {throw
             AbemBoxErrors.LogicalError("can not access file: \(file.absoluteString)")
         }
@@ -91,7 +91,7 @@ public class Box {
      */
     public func addFile(in dir: Directory, named name: String, containing data: Data)  throws -> Directory  {
         guard #available(OSX 10.15.4, *) else {throw  AbemBoxErrors.OperationNotSupported}
-        guard #available(iOS 13.0, *) else {throw  AbemBoxErrors.OperationNotSupported}
+        guard #available(iOS 13.4, *) else {throw  AbemBoxErrors.OperationNotSupported}
         
         let file = self.file
         let sodium = Sodium()
