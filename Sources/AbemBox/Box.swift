@@ -43,7 +43,7 @@ public class Box {
         }
     }
     
-    init?(from file:URL, with password: String) throws {
+    public init?(from file:URL, with password: String) throws {
         guard #available(OSX 10.15.4, *) else {throw  AbemBoxErrors.OperationNotSupported}
         guard #available(iOS 13.4, *) else {throw  AbemBoxErrors.OperationNotSupported}
         guard file.startAccessingSecurityScopedResource() else {throw
